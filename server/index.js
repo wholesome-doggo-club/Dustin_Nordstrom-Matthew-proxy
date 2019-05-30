@@ -19,6 +19,7 @@ app.use('/', proxy({
     '/navbar': 'http://localhost:3001',
     '/productDescription': 'http://localhost:3002',
     '/morelooks': 'http://localhost:3003',
+    '/reviews': 'http://localhost:3004'
   }
 }))
 
