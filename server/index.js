@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 // Creating server and port number
 const app = express();
 const port = 3000;
@@ -20,12 +21,13 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/', proxy({
   target: 'localhost:3000',
   router: {
-    '/navbar': 'http://localhost:3001',
-    '/productDescription': 'http://localhost:3002',
-    '/morelooks': 'http://localhost:3003',
-    '/reviews': 'http://localhost:3004'
+    '/navbar': 'ec2-18-144-5-101.us-west-1.compute.amazonaws.com:80',
+    // '/productDescription': 'http://localhost:3002',
+    // '/morelooks': 'http://localhost:3003',
+    // '/reviews': 'http://localhost:3004'
   }
 }))
+
 
 // Verifies and sets port on where server is listens at
 app.listen(port, () => console.log(`Listening on proxy port ${port}!`));
